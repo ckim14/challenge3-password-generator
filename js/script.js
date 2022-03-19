@@ -10,8 +10,8 @@ function getRequirements () {
   //get password length
   var passwordLength = prompt("how long is your password? The password length must be between 8 and 128 characters.");
     //loop the question if the password is less than 8 characters or more than 128. 
-    while(passwordLength > 128 || passwordLength < 8) {
-      passwordLength = prompt("how long is your passowrd? The password length must be between 8 and 128 characters.");
+    while(passwordLength > 128 || passwordLength < 8 || isNaN(passwordLength)) {
+      passwordLength = prompt("how long is your password? The password length must be between 8 and 128 characters.");
     }
 
 
@@ -48,17 +48,17 @@ function generatePassword() {
 
   //var passwordChars merges the selected character sets
   var passwordChars = [];
-    if(reqs.useLowerCase) {
-      passwordChars = passwordChars.concat(lowerCase);
-    }
+  if(reqs.useLowerCase) {
+    passwordChars = passwordChars.concat(lowerCase);
+  }
 
-    if (reqs.useUpperCase) {
-      passwordChars = passwordChars.concat(upperCase);
-    }
+  if (reqs.useUpperCase) {
+    passwordChars = passwordChars.concat(upperCase);
+  }
 
-    if (reqs.useSymbols) {
-      passwordChars = passwordChars.concat(symbols);
-    }
+  if (reqs.useSymbols) {
+    passwordChars = passwordChars.concat(symbols);
+  }
 
   //variable to store the random password
   var password = '';
